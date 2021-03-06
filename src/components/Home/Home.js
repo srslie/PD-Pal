@@ -1,8 +1,9 @@
 import React from 'react';
-import Error from './Error';
-import Loading from './Loading';
-import JobListings from './JobListings';
-import Values from './Values';
+import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
+import JobListings from '../JobListings/JobListings';
+import Values from '../Values/Values';
+import './Home.css';
 
 export default function Home({jobs, saved, applied, error}) {
   return (

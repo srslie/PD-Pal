@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import utility from '../utility'
-import Header from './Header';
-import Footer from './Footer';
-import Home from './Home';
-import About from './About';
-import Resources from './Resources';
-import Account from './Account';
-import Saved from './Saved';
-import Applied from './Applied';
-import NotFound from './NotFound';
-import JobDetail from './JobDetail';
+import utility from '../../utility';
+import './App.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Home from '../Home/Home';
+import About from '../About/About';
+import Resources from '../Resources/Resources';
+import Account from '../Account/Account';
+import Saved from '../Saved/Saved';
+import Applied from '../Applied/Applied';
+import NotFound from '../NotFound/NotFound';
+import JobDetail from '../JobDetail/JobDetail';
 
 export default class App extends Component {
   constructor() {

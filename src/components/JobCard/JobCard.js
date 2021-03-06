@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
-import JobListings from './JobListings';
+import {Link} from 'react-router-dom';
+import JobListings from '../JobListings/JobListings';
+import './JobCard.css';
 
 export default function JobCard({jobs, matchId}) {
   const jobMatch = jobs.find(job => job.id === matchId)

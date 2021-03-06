@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import './JobDetail.css';
 
 export default function JobDetail({matchId, jobs}) {
   const jobMatch = jobs.find(job => job.id === matchId)
