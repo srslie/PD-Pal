@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
+import utility from '../utility'
 import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
@@ -12,26 +12,54 @@ import Applied from './Applied';
 import NotFound from './NotFound';
 import JobDetail from './JobDetail';
 
-export default function App() {
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: 'Your',
+      values: '',
+      jobs: [],
+      saved: [],
+      applied: [],
+      error: ''
+    }
+  }
 
-  return (
-    <>
-    <Header />
-    <Switch>
-      <Route exact path='/' component={Home} />
-      <Route path='/job/:id' render={({match}) => {
-        return <JobDetail id={match.params.id} />
-      }} />
-      <Route path='/about' component={About} />
-      <Route path='/resources' component={Resources} />
-      <Route path='/account' component={Account} />
-      <Route path='/saved' component={Saved} />
-      <Route path='/applied' component={Applied} />
-    </Switch>
-    <Route path="/404" component={NotFound} />
-    <Redirect to="/404" />
-    <Footer />
-    </>
-  );
+  componentDidMount() {
+    utility.getData()
+    .then(jobData => {
+      this.setState({jobs: jobData})
+    })
+    .then(() => console.log(this.state))
+    .catch(error => console.log(error))
+  }
+
+  render() {
+    return (
+      <>
+      <Header />
+      <Switch>
+        {this.state.jobs &&
+        <>
+        <Route exact path='/' render={() => {
+          return <Home jobs={this.state.jobs} saved={this.state.saved} applied={this.state.applied} error={this.state.error}/>
+          }} 
+        />
+        <Route path='/job/:id' render={({match}) => {
+          return <JobDetail id={match.params.id} />
+        }} />
+        <Route path='/about' component={About} />
+        <Route path='/resources' component={Resources} />
+        <Route path='/account' user={this.state.user} component={Account} />
+        <Route path='/saved' jobs={this.state.jobs} saved={this.state.saved} component={Saved} />
+        <Route path='/applied' jobs={this.state.jobs} applied={this.state.applied} component={Applied} />
+        </>
+      }
+      </Switch>
+      {/* <Route path="/404" component={NotFound} />
+      <Redirect to="/404" /> */}
+      <Footer />
+      </>
+    )
+  }
 }
-
