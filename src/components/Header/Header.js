@@ -1,14 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Header.css';
+import Values from '../Values/Values'
 
-export default function Header() {
+export default function Header({user, values}) {
   return (
     <div className='header'>
-      <Link to='/' className='logo'><h1>PD-Pal</h1></Link>
-      <Link to='/saved'>Saved Jobs</Link>
-      <Link to='/applied'>Jobs Applied To</Link>
-      <Link to='./account'>Account</Link>
+      <div className="header-links">
+      <Link to='/' className='logo'>
+        <h1>PD-Pal</h1>
+      </Link>
+      <Link to='/saved' className='saved-link'>
+        Saved
+      </Link>
+      <Link to='/applied' className='applied-link'>
+        Applied To
+      </Link>
+      <Link to='./account' className='account-link'>
+        Account
+      </Link>
+      </div>
+      <Values user={user} values={values} />
     </div>
   )
 }

@@ -1,0 +1,23 @@
+.header {
+  display: grid;
+  grid-template-rows: 5rem 10rem;
+  color: black;
+  place-items: baseline;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  top: 0;
+}
+
+.header-links {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+.logo, .saved-link, .applied-link, .account-link {
+  position: relative;
+  top: 1rem;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+}
