@@ -40,24 +40,30 @@ export default class App extends Component {
       <Header />
       <Switch>
         {this.state.jobs &&
-        <>
-        <Route exact path='/' render={() => {
-          return <Home jobs={this.state.jobs} saved={this.state.saved} applied={this.state.applied} error={this.state.error}/>
-          }} 
-        />
-        <Route path='/job/:id' render={({match}) => {
-          return <JobDetail id={match.params.id} />
-        }} />
-        <Route path='/about' component={About} />
-        <Route path='/resources' component={Resources} />
-        <Route path='/account' user={this.state.user} component={Account} />
-        <Route path='/saved' jobs={this.state.jobs} saved={this.state.saved} component={Saved} />
-        <Route path='/applied' jobs={this.state.jobs} applied={this.state.applied} component={Applied} />
-        </>
-      }
+          <>
+            <Route exact path='/' render={() => {
+              return <Home jobs={this.state.jobs} saved={this.state.saved}    applied={this.state.applied} error={this.state.error}/>
+              }} 
+            />
+            <Route path='/job/:id' render={({match}) => {
+              return <JobDetail id={match.params.id} />
+            }} />
+            <Route path='/about' component={About} />
+            <Route path='/resources' component={Resources} />
+            <Route path='/account' user={this.state.user} component=  {Account}   />
+            <Route path='/saved'  render={() => {
+              return <Saved jobs={this.state.jobs} saved={this.state.saved} />
+              }} 
+            />
+            <Route path='/applied' render={() => {
+              return <Applied jobs={this.state.jobs} applied={this.state.applied} />
+              }} 
+            />
+          </>
+        }
+        <Route path="/404" component={NotFound} />
+        <Redirect to="/404" />
       </Switch>
-      {/* <Route path="/404" component={NotFound} />
-      <Redirect to="/404" /> */}
       <Footer />
       </>
     )
