@@ -5,8 +5,16 @@ import PropTypes from 'prop-types';
 export default function Applied({jobs, applied}) {
   const appliedJobs = jobs.filter(job => applied.includes(job.id))
 
-  return(
-    <JobListings jobs={appliedJobs} />
+  let display = <p>No jobs saved yet</p>
+  
+  if (appliedJobs.length > 0) {
+    display = <JobListings jobs={appliedJobs} />
+  }
+
+  return (
+    <div className="applied">
+      {display}
+    </div>
   )
 }
 
