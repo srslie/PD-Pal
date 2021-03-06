@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
-import JobListings from './JobListings';
 
-export default function JobCard({job}) {
-  const {company, id, location, title, url} = job
-
+export default function JobDetail({job}) {
+  const {id, company, description, title, location, url} = job
   return (
     <div className='job-card' id={id} key={id}>
       <div className="user-interactions">
@@ -14,6 +12,7 @@ export default function JobCard({job}) {
       </div>
       <h1 className='title'>{title}</h1>
       <a className="company-info" href={url}>{company}</a>
+      <p className="description">{description}</p>
       <p className="location">{location}</p>
       <Link to={`/job/${id}`}className='details-button'>
         More Details
