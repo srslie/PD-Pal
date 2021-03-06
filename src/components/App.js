@@ -26,7 +26,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    utility.getData()
+    utility.getData('javascript', '1')
     .then(jobData => {
       this.setState({jobs: jobData})
     })
