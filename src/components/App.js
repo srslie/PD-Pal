@@ -30,7 +30,7 @@ export default class App extends Component {
     .then(jobData => {
       this.setState({jobs: jobData})
     })
-    .then(() => console.log(this.state))
+    .then(() => console.log('STATE', this.state))
     .catch(error => console.log(error))
   }
 
@@ -42,11 +42,11 @@ export default class App extends Component {
         {this.state.jobs &&
           <>
             <Route exact path='/' render={() => {
-              return <Home jobs={this.state.jobs} saved={this.state.saved}    applied={this.state.applied} error={this.state.error}/>
+              return <Home jobs={this.state.jobs} saved={this.state.saved} applied={this.state.applied} error={this.state.error}/>
               }} 
             />
             <Route path='/job/:id' render={({match}) => {
-              return <JobDetail id={match.params.id} />
+              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} />
             }} />
             <Route path='/about' component={About} />
             <Route path='/resources' component={Resources} />
