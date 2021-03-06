@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './Header.css';
+import './Values.css';
 
 
 export default function Values({user, values}) {
