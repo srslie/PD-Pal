@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -11,7 +12,7 @@ import Applied from './Applied';
 import NotFound from './NotFound';
 import JobDetail from './JobDetail';
 
-function App() {
+export default function App() {
 
   return (
     <>
@@ -34,4 +35,3 @@ function App() {
   );
 }
 
-export default App;
