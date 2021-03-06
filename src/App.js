@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
+import Home from './Home';
+import About from './About';
+import Resources from './Resources';
+import Account from './Account';
+import Saved from './Saved';
+import Applied from './Applied';
+import NotFound from './NotFound';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header />
+    <Switch>
+      <Route exact path='/' component={Home} />
+      <Route path='/job/:id' render={(() => {})} />
+      <Route path='/about' component={About} />
+      <Route path='/resources' component={Resources} />
+      <Route path='/account' component={Account} />
+      <Route path='/saved' component={Saved} />
+      <Route path='/applied' component={Applied} />
+    </Switch>
+    <Route path="/404" component={NotFound} />
+    <Redirect to="/404" />
+    <Footer />
+    </>
   );
 }
 
