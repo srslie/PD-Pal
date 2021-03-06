@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import JobListings from './JobListings';
 
-export default function JobCard({job}) {
-  const {company, id, location, title, url} = job
+export default function JobCard({jobs, matchId}) {
+  const jobMatch = jobs.find(job => job.id === matchId)
+  const {company, location, title, url} = jobMatch
 
   return (
-    <div className='job-card' id={id} key={id}>
+    <>
+    {jobMatch &&
+    <div className='job-card' id={matchId} key={matchId}>
       <div className="user-interactions">
         <button className="save-button">Save</button>
         <button className="applied-button">Mark Applied</button>
@@ -15,10 +18,12 @@ export default function JobCard({job}) {
       <h1 className='title'>{title}</h1>
       <a className="company-info" href={url}>{company}</a>
       <p className="location">{location}</p>
-      <Link to={`/job/${id}`}className='details-button'>
+      <Link to={`/job/${matchId}`} className='details-button'>
         More Details
       </Link>
     </div>
+    }
+    </>
   )
 }
 
