@@ -6,6 +6,7 @@
   background-size: cover;
   text-align: center;
   grid-row-start:2;
+  border-bottom: 5px solid rgb(23, 38, 64);
 }
 
 .value-text {
@@ -13,7 +14,6 @@
 }
 
 .update-values-button {
-  position: absolute;
-  bottom: 1rem;
-
+  margin-top: 1rem;
+  place-self: center;
 }
