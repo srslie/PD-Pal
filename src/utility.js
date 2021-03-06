@@ -14,11 +14,15 @@ const utility = {
     return {
       id: listing.id || Date.now(),
       company: listing.company.display_name || 'None Given',
-      title: listing.title.split('<strong>').join('').split('</strong>').join('') || 'None Given',
+      title: this.removeFormating(listing.title) || 'None Given',
       location: listing.location.display_name || 'None Given',
       url: listing.redirect_url || 'None Given',
-      description: listing.description || 'None Given'
+      description: this.removeFormating(listing.description) || 'None Given'
     }
+  },
+
+  removeFormating(text) {
+    return text.replaceAll('<strong>', '').replaceAll('</strong>', '') 
   }
 
 }
