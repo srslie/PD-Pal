@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# PDPal: Professional-Development-Pal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Turing School of Software and Design emphasizes the professional development of students alongside building up technical skills.
 
-## Available Scripts
+Learning to code is fun! Learning to write resumes, set goals, and search for jobs? Not as much fun.
 
-In the project directory, you can run:
+Until now! At >>>>>>>>>[PDPAL](), we've curated jobs that specifically contain skills learned in Turing's Front-End Development Program. No more typing out "Javascript" or "React" into endless job aggregators. And when you like a job, boom, save it! If you applied, boom, log it!
 
-### `yarn start`
+Users can: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- See a display of jobs curated for students graduating Turing's Front-End Development Program.
+- Click a job to see more details
+- Allow for jobs to be denoted as "Favorites" or "Applied to"
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This is the final solo project of Turing School Mod 3, and synthesizes the needs of professional development with front-end technology. 
 
-### `yarn test`
+## Goals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In this project, my goal was to develop an app that served the needs of a specific audience. Often we talk about accessiblity and ensuring we can develop well to a diverse audience. Sometimes we neglect to highlight the importance of developing something very useful to a specific audience niche. Highlighting those user stories and catering to that scope helps make a useful tool for that demographic and scopes development appropriately.
 
-### `yarn build`
+## Technologies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was utlized:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **ES6 Javascript** with a focus on DRY, SRP, OOP code
+- **React** & **React Router** with [Create React App](https://github.com/facebook/create-react-app)
+- **Cypress** end-to-end testing
+- **CSS** broken out into modular, logical stylesheets
+- A **CSS [normalize](https://github.com/necolas/normalize.css/)** file for browser compatability
+- **Accessibility testing** using [aria labels](https://www.w3.org/TR/wai-aria/#aria-label) and [Colorblinding](https://chrome.google.com/webstore/detail/colorblinding/dgbgleaofjainknadoffbjkclicbbgaa?hl=en) checks alongside **semantic HTML**
+- **Webpack** bundling 
+- **Github pages** deployment
+- **Git workflow**, PR template, a kanban project board, wireframing, and self-management of design and development modeled after Agile
+- **Material-UI** dev dependency to help with accessibility tooltips and drop-menu
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributors
 
-### `yarn eject`
+This app was coded by me, [Alice Ruppert](https://www.srslie.com/), following a [spec](https://frontend.turing.io/projects/module-3/niche-audience.html) by Turing School staff.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Special thanks to my mentor, [Scott Schipke](https://github.com/sschipke) for his technical support, and my partner for the love and support.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Iterations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I was happy to build this out over the course of a week, but had more ideas than I had time to implement!
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+While no further iterations are planned, future improvements might include:
+- More refactoring!
+- 
