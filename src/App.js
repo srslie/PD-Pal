@@ -9,6 +9,7 @@ import Account from './Account';
 import Saved from './Saved';
 import Applied from './Applied';
 import NotFound from './NotFound';
+import JobDetail from './JobDetail';
 
 function App() {
 
@@ -17,7 +18,9 @@ function App() {
     <Header />
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route path='/job/:id' render={(() => {})} />
+      <Route path='/job/:id' render={({match}) => {
+        return <JobDetail id={match.params.id} />
+      }} />
       <Route path='/about' component={About} />
       <Route path='/resources' component={Resources} />
       <Route path='/account' component={Account} />
