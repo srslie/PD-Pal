@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './JobDetail.css';
 import Error from '../Error/Error';
 
-export default function JobDetail({matchId, jobs, updateProperty}) {  
+export default function JobDetail({matchId, jobs, updateProperty, checkIfMarked}) {  
   const jobMatch = jobs.find(job => job.id === matchId)
   if (!jobMatch) {
     return (
@@ -11,7 +11,9 @@ export default function JobDetail({matchId, jobs, updateProperty}) {
     )
   } else {
   const {company, description, title, location, url, created} = jobMatch
-
+  let isSaved = checkIfMarked(matchId, 'saved')
+  let isApplied = checkIfMarked(matchId, 'applied')
+  
   const handleSave = event => {
     event.preventDefault()
     updateProperty(matchId, 'saved')
@@ -37,8 +39,12 @@ export default function JobDetail({matchId, jobs, updateProperty}) {
       </a>
       <p className="description">{description}</p>
       <div className="user-interactions">
-        <button className="save-button" onClick={handleSave}>Save</button>
-        <button className="applied-button" onClick={handleApplied}>Mark Applied</button>
+        <button className={`save-button ${isSaved ? 'marked': ''}`} onClick={handleSave}>
+          {isSaved ? 'Saved!' : 'Save'}
+        </button>
+        <button className={`applied-button ${isApplied ? 'marked': ''}`} onClick={handleApplied}>
+          {isApplied ? 'Applied!' : 'Mark Applied'}
+        </button>
       </div>
     </div>
     }

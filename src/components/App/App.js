@@ -25,6 +25,7 @@ export default class App extends Component {
     }
     this.updateProperty = this.updateProperty.bind(this);
     this.updateText = this.updateText.bind(this);
+    this.checkIfMarked = this.checkIfMarked.bind(this);
   }
 
   componentDidMount() {
@@ -66,6 +67,10 @@ export default class App extends Component {
     localStorage.setItem(`${property}`, JSON.stringify(text))
   }
 
+  checkIfMarked(id, property) {
+    return this.state[property].includes(id)
+  }
+
   render() {
     return (
       <>
@@ -78,7 +83,7 @@ export default class App extends Component {
               }} 
             />
             <Route exact path='/job/:id' render={({match}) => {
-              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} updateProperty={this.updateProperty}/>
+              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} updateProperty={this.updateProperty} checkIfMarked={this.checkIfMarked}/>
             }} />
             <Route exact path='/about' component={About} />
             <Route exact path='/resources' component={Resources} />
