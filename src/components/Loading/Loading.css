@@ -1,0 +1,10 @@
+.loading {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: white;
+  color: orange;
+  text-align: center;
+  font-size: xx-large;
+
+}
