@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import './Saved.css';
 
 export default function Saved({jobs, saved}) {
-  const savedJobs = jobs.filter(job => saved.includes(job.id))
+  let savedJobs = jobs.filter(job => saved.includes(job.id))
+
+  const storedSavedJobs = JSON.parse(localStorage.getItem('saved'))
+
+  if (saved.length < storedSavedJobs.length) {
+    savedJobs = jobs.filter(job => storedSavedJobs.includes(job.id))
+  }
 
   let display = <p>No jobs saved yet</p>
   

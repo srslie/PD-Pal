@@ -2,9 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './JobDetail.css';
 
-export default function JobDetail({matchId, jobs}) {
+export default function JobDetail({matchId, jobs, updateSaved, updateApplied}) {
   const jobMatch = jobs.find(job => job.id === matchId)
   const {company, description, title, location, url} = jobMatch
+
+  const handleSave = event => {
+    event.preventDefault()
+    updateSaved(matchId)
+  }
+
+  const handleApplied = event => {
+    event.preventDefault()
+    updateApplied(matchId)
+  }
+
   return (
     <div className='job-detail'>
     {jobMatch &&
@@ -19,8 +30,8 @@ export default function JobDetail({matchId, jobs}) {
       </a>
       <p className="description">{description}</p>
       <div className="user-interactions">
-        <button className="save-button">Save</button>
-        <button className="applied-button">Mark Applied</button>
+        <button className="save-button" onClick={handleSave}>Save</button>
+        <button className="applied-button" onClick={handleApplied}>Mark Applied</button>
       </div>
     </div>
     }

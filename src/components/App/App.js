@@ -24,6 +24,8 @@ export default class App extends Component {
       applied: [],
       error: ''
     }
+    this.updateSaved = this.updateSaved.bind(this);
+    this.updateApplied = this.updateApplied.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +35,32 @@ export default class App extends Component {
     })
     .then(() => console.log('STATE', this.state))
     .catch(error => console.log(error))
+  }
+
+  updateSaved(id) {
+    if (this.state.saved.includes(id)) {
+      let copy = this.state.saved
+      let index = copy.indexOf(id)
+      copy.splice(index, 1)
+      this.setState({saved: copy})
+    } else {
+      this.setState({saved: [...this.state.saved, id]})
+    }
+    localStorage.removeItem('saved');
+    localStorage.setItem('saved', JSON.stringify(this.state.saved))
+  }
+
+  updateApplied(id) {
+    if (this.state.applied.includes(id)) {
+      let copy = this.state.applied
+      let index = copy.indexOf(id)
+      copy.splice(index, 1)
+      this.setState({applied: copy})
+    } else {
+      this.setState({applied: [...this.state.applied, id]})
+    }
+    localStorage.removeItem('applied');
+    localStorage.setItem('applied', JSON.stringify(this.state.applied))
   }
 
   render() {
@@ -47,7 +75,7 @@ export default class App extends Component {
               }} 
             />
             <Route path='/job/:id' render={({match}) => {
-              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} />
+              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} updateSaved={this.updateSaved} updateApplied={this.updateApplied}/>
             }} />
             <Route path='/about' component={About} />
             <Route path='/resources' component={Resources} />
