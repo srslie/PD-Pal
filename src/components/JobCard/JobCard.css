@@ -1,0 +1,19 @@
+.job-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-box-shadow: -2px 2px 7px -5px #24147b;
+	   -moz-box-shadow: -2px 2px 7px -5px #24147b;
+	        box-shadow: -2px 2px 7px -5px #24147b;
+}
+
+.job-title, .company-info, .location {
+  margin-top: 1rem;
+}
+
+.details-button {
+  margin: 1rem;
+}
