@@ -10,13 +10,13 @@ export default function Values({user, values}) {
       <span className='value-text'>
       <p className='values-title'>{user} Values:</p>
       <h2 className='values-info'>{values}</h2>
- 
+      {valueCheck && 
       <Link to='/account'>
           <button className='update-values-button'>
             Update Values
           </button>
         </Link>
-
+      }
       </span>
     </div>
   )
