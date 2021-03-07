@@ -1,0 +1,30 @@
+.footer {
+  bottom: 0;
+  height: 3rem;
+  display: grid;
+  grid-template-columns: 2rem auto 1rem auto 2rem;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  background-color: rgb(23, 38, 64);;
+}
+
+.about-link {
+  grid-column-start: 2;
+  color: white;
+}
+
+.resources-link {
+  grid-column-start: 4;
+  color: white;
+}
+
+.about-link, .resources-link {
+  margin-top: 1rem;
+  color: white;
+}
+
+.about-link:hover, .resources-link:hover {
+  transform: scale(1.2);
+  color: orange;
+}
