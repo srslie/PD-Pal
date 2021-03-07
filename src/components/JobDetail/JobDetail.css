@@ -1,8 +1,22 @@
 .job-detail {
-  margin: 18rem 10% auto 10%;
+  margin: 18rem 10% 5rem 10%;
+  overflow: scroll;
 }
-
 
 .title, .full-info-link, .user-interactions {
   margin: 1rem;
+}
+
+.title {
+  color: rgb(23, 38, 64);
+}
+
+.marked {
+  background-color: rgb(23, 38, 64);
+  color: orange;
+}
+
+.marked:hover {
+  color: rgb(23, 38, 64);
+  background-color: white;
 }

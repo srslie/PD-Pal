@@ -1,14 +1,19 @@
 import React from 'react';
 import './Account.css';
 
-export default function Account({user, values, updateUser, updateValues}) {
+export default function Account({user, values, updateText}) {
   const userClick = event => {
     event.preventDefault()
+    const text = document.querySelector('.name-input').value + "'s"
+    updateText(text, 'user')
   }
+
   const valuesClick = event => {
     event.preventDefault()
-
+    const text = document.querySelector('.values-input').value
+    updateText(text, 'values')
   }
+
   return (
     <div className='account'>
       <div className='account-name'>

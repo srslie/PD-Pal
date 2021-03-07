@@ -11,9 +11,14 @@
 
 .value-text {
   padding: 10px;
+  color: rgb(23, 38, 64);
 }
 
 .update-values-button {
   margin-top: 1rem;
   place-self: center;
+}
+
+.update-values-button-check {
+  background-color: rgba(0, 0, 0, 0.5);
 }

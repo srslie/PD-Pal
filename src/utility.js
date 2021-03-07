@@ -25,7 +25,8 @@ const utility = {
       title: this.removeFormating(listing.title) || 'None Given',
       location: listing.location.display_name || 'None Given',
       url: listing.redirect_url || 'None Given',
-      description: this.removeFormating(listing.description) || 'None Given'
+      description: this.removeFormating(listing.description) || 'None Given', 
+      created: listing.created.split('T')[0] || 'None Given'
     }
   },
 
