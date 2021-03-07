@@ -7,3 +7,7 @@
 .title, .full-info-link, .user-interactions {
   margin: 1rem;
 }
+
+.title {
+  color: rgb(23, 38, 64);
+}
