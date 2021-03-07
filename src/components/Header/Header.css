@@ -9,9 +9,24 @@
   top: 0;
 }
 
+.logo-button {
+  background-color:rgb(23, 38, 64);
+  color: white;
+}
+
+.logo-button:hover {
+  background-color: darkred;
+}
+
 .header-links {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-columns: 2rem auto 1rem auto 1rem auto 1rem auto 2rem;
+  width: 100%;
+}
+
+.saved-link:hover, .applied-link:hover, .account-link:hover {
+  font-weight: 600;
+  
 }
 
 .logo, .saved-link, .applied-link, .account-link {
@@ -20,4 +35,24 @@
   bottom: 1rem;
   right: 1rem;
   left: 1rem;
+}
+
+.logo {
+  grid-column-start: 2;
+  place-self: center;
+}
+
+.saved-link {
+  grid-column-start: 4;
+  place-self: center;
+}
+
+.applied-link {
+  grid-column-start: 6;
+  place-self: center;
+}
+
+.account-link {
+  grid-column-start: 8;
+  place-self: center;
 }

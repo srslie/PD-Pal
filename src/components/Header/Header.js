@@ -7,8 +7,11 @@ export default function Header({user, values}) {
   return (
     <div className='header'>
       <div className="header-links">
+        
       <Link to='/' className='logo'>
-        <h1>PD-Pal</h1>
+        <button className='logo-button'>
+          <h1>PD-Pal</h1>
+        </button>
       </Link>
       <Link to='/saved' className='saved-link'>
         Saved
