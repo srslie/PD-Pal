@@ -5,7 +5,6 @@ import JobListings from '../JobListings/JobListings';
 import './JobCard.css';
 
 export default function JobCard({jobs, matchId, checkIfMarked}) {
-  console.log('card', checkIfMarked)
   const jobMatch = jobs.find(job => job.id === matchId)
   const {company, location, title, url, created} = jobMatch
   let isSaved = checkIfMarked(matchId, 'saved')
@@ -21,7 +20,7 @@ export default function JobCard({jobs, matchId, checkIfMarked}) {
   return (
     <>
     {jobMatch &&
-    <div className={`job-card ${markedCard}`} id={matchId} key={matchId}>
+    <div className={`job-card ${markedCard}`} id={matchId} key={Date.now()}>
       <h2 className='job-title'>{title}</h2>
       <a className='company-info' href={url}>{company}</a>
       <p className="date-posted">Posted: {created}</p>
@@ -38,9 +37,7 @@ export default function JobCard({jobs, matchId, checkIfMarked}) {
 }
 
 JobListings.propTypes = {
-  id: PropTypes.string, 
-  title: PropTypes.string, 
-  company: PropTypes.string, 
-  location: PropTypes.string,
-  url: PropTypes.string
+  jobs: PropTypes.object,
+  matchId: PropTypes.string,
+  checkIfMarked: PropTypes.func
 }
