@@ -19,7 +19,7 @@
   border: 5px solid darkred;
 }
 
-.home-link {
+.home-link-button {
   color: orange;
   position: absolute;
   padding: 6rem;
@@ -33,7 +33,7 @@
   font-size: 1.2rem;
 }
 
-.home-link:hover {
+.home-link-button:hover {
   border: 2px solid orange;
   background-color: #24147b;
   transform: scale(1.2);
