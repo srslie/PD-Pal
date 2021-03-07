@@ -1,6 +1,7 @@
 import React from 'react';
-import JobListings from './JobListings';
+import JobListings from '../JobListings/JobListings';
 import PropTypes from 'prop-types';
+import './Applied.css';
 
 export default function Applied({jobs, applied}) {
   const appliedJobs = jobs.filter(job => applied.includes(job.id))

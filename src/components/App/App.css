@@ -1,0 +1,44 @@
+* {
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400;
+  margin: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+a:hover {
+  color: darkred;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  -webkit-box-shadow: -2px 2px 7px -5px #24147b;
+  -moz-box-shadow: -2px 2px 7px -5px #24147b;
+       box-shadow: -2px 2px 7px -5px #24147b;
+  border: none;
+}
+
+button:hover {
+  background-color:rgb(23, 38, 64);
+  color: white;
+}
