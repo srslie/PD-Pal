@@ -27,5 +27,6 @@ export default function Saved({jobs, saved, checkIfMarked}) {
 
 Saved.propTypes = {
   jobs: PropTypes.array, 
-  saved: PropTypes.array
+  saved: PropTypes.array,
+  checkIfMarked: PropTypes.func
 }

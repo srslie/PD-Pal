@@ -11,4 +11,7 @@ export default function JobListings({jobs, checkIfMarked}) {
   )
 }
 
-JobListings.propTypes = {jobs: PropTypes.array}
+JobListings.propTypes = {
+  jobs: PropTypes.array, 
+  checkIfMarked: PropTypes.func
+}

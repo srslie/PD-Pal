@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import './Values.css';
 
@@ -20,4 +21,9 @@ export default function Values({user, values}) {
       </span>
     </div>
   )
+}
+
+Values.propTypes = {
+  user: PropTypes.string, 
+  values: PropTypes.string,
 }

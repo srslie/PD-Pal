@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import './Header.css';
 import Values from '../Values/Values'
@@ -26,4 +27,9 @@ export default function Header({user, values}) {
       <Values user={user} values={values} />
     </div>
   )
+}
+
+Header.propTypes = {
+  user: PropTypes.string,
+  values: PropTypes.string
 }

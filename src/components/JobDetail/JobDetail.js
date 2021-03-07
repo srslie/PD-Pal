@@ -61,10 +61,8 @@ export default function JobDetail({matchId, jobs, updateProperty, checkIfMarked}
 }
 
 JobDetail.propTypes = {
-  id: PropTypes.string, 
-  title: PropTypes.string, 
-  description: PropTypes.string,
-  company: PropTypes.string, 
-  location: PropTypes.string,
-  url: PropTypes.string
+  matchId: PropTypes.string, 
+  jobs: PropTypes.array, 
+  updateProperty: PropTypes.func,
+  checkIfMarked: PropTypes.func 
 }

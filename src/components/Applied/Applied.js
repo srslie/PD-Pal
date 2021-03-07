@@ -27,5 +27,6 @@ export default function Applied({jobs, applied, checkIfMarked}) {
 
 Applied.propTypes = {
   jobs: PropTypes.array, 
-  applied: PropTypes.array
+  applied: PropTypes.array,
+  checkIfMarked: PropTypes.func
 }

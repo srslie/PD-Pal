@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Account.css';
 
 export default function Account({user, values, updateText}) {
@@ -33,4 +34,10 @@ export default function Account({user, values, updateText}) {
       </div>
     </div>
   )
+}
+
+Account.propTypes = {
+  user: PropTypes.string,
+  values: PropTypes.string,
+  updateText: PropTypes.func
 }
