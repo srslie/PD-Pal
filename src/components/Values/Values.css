@@ -17,3 +17,7 @@
   margin-top: 1rem;
   place-self: center;
 }
+
+.update-values-button-check {
+  background-color: rgba(0, 0, 0, 0.5);
+}

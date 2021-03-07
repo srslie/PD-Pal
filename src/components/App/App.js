@@ -12,7 +12,6 @@ import Saved from '../Saved/Saved';
 import Applied from '../Applied/Applied';
 import NotFound from '../NotFound/NotFound';
 import JobDetail from '../JobDetail/JobDetail';
-import Values from '../Values/Values';
 export default class App extends Component {
   constructor() {
     super();
@@ -24,8 +23,8 @@ export default class App extends Component {
       applied: [],
       error: ''
     }
-    this.updateSaved = this.updateSaved.bind(this);
-    this.updateApplied = this.updateApplied.bind(this);
+    this.updateProperty = this.updateProperty.bind(this);
+    this.updateText = this.updateText.bind(this);
   }
 
   componentDidMount() {
@@ -33,40 +32,44 @@ export default class App extends Component {
     .then(jobData => {
       this.setState({jobs: jobData})
     })
+    .then(() => {
+      const storedValues = JSON.parse(localStorage.getItem('values'))
+      const storedUser = JSON.parse(localStorage.getItem('user'))
+      if (storedValues) {
+        this.setState({values: storedValues})
+      }
+      if (storedUser) {
+        this.setState({user: storedUser})
+      }
+    })
     .then(() => console.log('STATE', this.state))
     .catch(error => console.log(error))
   }
 
-  updateSaved(id) {
-    if (this.state.saved.includes(id)) {
-      let copy = this.state.saved
+  updateProperty(id, property) {
+    localStorage.removeItem(`${property}`);
+    if (this.state[property].includes(id)) {
+      let copy = this.state[property]
       let index = copy.indexOf(id)
       copy.splice(index, 1)
-      this.setState({saved: copy})
+      this.setState({[property]: copy})
+      localStorage.setItem(`${property}`, JSON.stringify(copy))
     } else {
-      this.setState({saved: [...this.state.saved, id]})
+      this.setState({[property]: [...this.state[property], id]})
+      localStorage.setItem(`${property}`, JSON.stringify([...this.state[property], id]))
     }
-    localStorage.removeItem('saved');
-    localStorage.setItem('saved', JSON.stringify(this.state.saved))
   }
 
-  updateApplied(id) {
-    if (this.state.applied.includes(id)) {
-      let copy = this.state.applied
-      let index = copy.indexOf(id)
-      copy.splice(index, 1)
-      this.setState({applied: copy})
-    } else {
-      this.setState({applied: [...this.state.applied, id]})
-    }
-    localStorage.removeItem('applied');
-    localStorage.setItem('applied', JSON.stringify(this.state.applied))
+  updateText(text, property) {
+    localStorage.removeItem(`${property}`)
+    this.setState({[property]: text})
+    localStorage.setItem(`${property}`, JSON.stringify(text))
   }
 
   render() {
     return (
       <>
-      <Header user={this.state.user} values={this.state.values}/>
+      <Header user={this.state.user} values={this.state.values} />
       <Switch>
         {this.state.jobs &&
           <>
@@ -75,11 +78,14 @@ export default class App extends Component {
               }} 
             />
             <Route path='/job/:id' render={({match}) => {
-              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} updateSaved={this.updateSaved} updateApplied={this.updateApplied}/>
+              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} updateProperty={this.updateProperty}/>
             }} />
             <Route path='/about' component={About} />
             <Route path='/resources' component={Resources} />
-            <Route path='/account' user={this.state.user} component=  {Account}   />
+            <Route path='/account' render={() => {
+              return <Account user={this.state.user} values={this.state.values} updateText={this.updateText}/>
+              }} 
+            />
             <Route path='/saved'  render={() => {
               return <Saved jobs={this.state.jobs} saved={this.state.saved} />
               }} 
