@@ -1,0 +1,6 @@
+.home {
+  display: grid;
+  grid-template-columns: 2rem auto 2rem;
+  margin-top: 15rem;
+  background-color: lightgray;
+}
