@@ -12,6 +12,12 @@
 .logo-button {
   background-color:rgb(23, 38, 64);
   color: white;
+  border-radius: 50%;
+  padding: .5rem 3rem .5rem 3rem;
+  border: 2px solid orange;
+  -webkit-box-shadow: -2px 2px 7px -5px #24147b;
+  -moz-box-shadow: -2px 2px 7px -5px #24147b;
+       box-shadow: -2px 2px 7px -5px #24147b;
 }
 
 .logo-button:hover {
@@ -20,7 +26,7 @@
 
 .header-links {
   display: grid;
-  grid-template-columns: 2rem auto 1rem auto 1rem auto 1rem auto 2rem;
+  grid-template-columns: 2rem 4fr 1rem 1fr 1rem 1fr 1rem 1fr 2rem;
   width: 100%;
 }
 
@@ -39,7 +45,7 @@
 
 .logo {
   grid-column-start: 2;
-  place-self: center;
+  place-self: left;
 }
 
 .saved-link {
