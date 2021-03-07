@@ -1,5 +1,6 @@
 .job-detail {
-  margin: 18rem 10% auto 10%;
+  margin: 18rem 10% 5rem 10%;
+  overflow: scroll;
 }
 
 
