@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import JobListings from '../JobListings/JobListings';
 import './Home.css';
 
-export default function Home({jobs, saved, applied, error}) {
+export default function Home({jobs, saved, applied, error, checkIfMarked}) {
   return (
     <div className='home'>
     {error &&
@@ -14,7 +14,7 @@ export default function Home({jobs, saved, applied, error}) {
       <Loading />
     }
     {jobs.length > 1 &&
-      <JobListings jobs={jobs} saved={saved} applied={applied} />
+      <JobListings jobs={jobs} saved={saved} applied={applied} checkIfMarked={checkIfMarked}/>
     }
     </div>
   )

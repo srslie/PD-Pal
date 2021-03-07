@@ -79,24 +79,43 @@ export default class App extends Component {
         {this.state.jobs &&
           <>
             <Route exact path='/' render={() => {
-              return <Home jobs={this.state.jobs} saved={this.state.saved} applied={this.state.applied} error={this.state.error}/>
+              return <Home 
+                jobs={this.state.jobs} 
+                saved={this.state.saved} 
+                applied={this.state.applied} 
+                error={this.state.error} 
+                checkIfMarked={this.checkIfMarked} />
               }} 
             />
             <Route exact path='/job/:id' render={({match}) => {
-              return <JobDetail matchId={match.params.id} jobs={this.state.jobs} updateProperty={this.updateProperty} checkIfMarked={this.checkIfMarked}/>
-            }} />
+              return <JobDetail 
+                matchId={match.params.id} 
+                jobs={this.state.jobs} 
+                updateProperty={this.updateProperty} 
+                checkIfMarked={this.checkIfMarked} /> 
+              }} 
+            />
             <Route exact path='/about' component={About} />
             <Route exact path='/resources' component={Resources} />
             <Route exact path='/account' render={() => {
-              return <Account user={this.state.user} values={this.state.values} updateText={this.updateText}/>
+              return <Account 
+                user={this.state.user} 
+                values={this.state.values} 
+                updateText={this.updateText}/>
               }} 
             />
             <Route exact path='/saved'  render={() => {
-              return <Saved jobs={this.state.jobs} saved={this.state.saved} />
+              return <Saved 
+                jobs={this.state.jobs} 
+                saved={this.state.saved}
+                checkIfMarked={this.checkIfMarked}  />
               }} 
             />
             <Route exact path='/applied' render={() => {
-              return <Applied jobs={this.state.jobs} applied={this.state.applied} />
+              return <Applied 
+                jobs={this.state.jobs} 
+                applied={this.state.applied}
+                checkIfMarked={this.checkIfMarked}  />
               }} 
             />
           </>

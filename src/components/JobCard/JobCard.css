@@ -6,8 +6,8 @@
   border-radius: 10%;
   padding: 5px;
   -webkit-box-shadow: -2px 2px 7px -5px #24147b;
-	   -moz-box-shadow: -2px 2px 7px -5px #24147b;
-	        box-shadow: -2px 2px 7px -5px #24147b;
+  -moz-box-shadow: -2px 2px 7px -5px #24147b;
+	box-shadow: -2px 2px 7px -5px #24147b;
 }
 
 .job-title {
@@ -25,4 +25,12 @@
 
 .details-button {
   margin: 1rem;
+}
+
+.mark-saved {
+  border: 2px solid orange;
+}
+
+.mark-applied {
+  border: 2px solid darkred;
 }

@@ -13,6 +13,13 @@ export default function JobDetail({matchId, jobs, updateProperty, checkIfMarked}
   const {company, description, title, location, url, created} = jobMatch
   let isSaved = checkIfMarked(matchId, 'saved')
   let isApplied = checkIfMarked(matchId, 'applied')
+  let markedCard = ''
+  
+  if (isSaved) {
+    markedCard = 'mark-saved'
+  } else if (isApplied) {
+    markedCard = 'mark-applied'
+  }
   
   const handleSave = event => {
     event.preventDefault()
@@ -27,7 +34,7 @@ export default function JobDetail({matchId, jobs, updateProperty, checkIfMarked}
   return (
     <div className='job-detail'>
     {jobMatch &&
-    <div className='job-card job-detail-card' id={matchId} key={matchId}>
+    <div className={`job-card job-detail-card ${markedCard}`} id={matchId} key={matchId}>
       <h1 className='title'>{title}</h1>
       <p className='company'>{company}</p>
       <p className="date-posted">Posted: {created}</p>
