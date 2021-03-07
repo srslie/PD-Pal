@@ -1,7 +1,5 @@
 .job-listings {
   grid-column-start: 2;
-  height: 100%;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 25rem);
   grid-gap: 1rem;

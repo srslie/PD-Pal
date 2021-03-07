@@ -13,7 +13,7 @@ export default function JobDetail({matchId, jobs, updateSaved, updateApplied}) {
 
   const handleApplied = event => {
     event.preventDefault()
-    updateApplied(matchId)
+    updateApplied()
   }
 
   return (
