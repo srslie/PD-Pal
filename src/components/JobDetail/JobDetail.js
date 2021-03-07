@@ -1,19 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './JobDetail.css';
+import Error from '../Error/Error';
 
-export default function JobDetail({matchId, jobs, updateSaved, updateApplied}) {
+export default function JobDetail({matchId, jobs, updateProperty}) {  
   const jobMatch = jobs.find(job => job.id === matchId)
-  const {company, description, title, location, url} = jobMatch
+  if (!jobMatch) {
+    return (
+      <Error error={'Problem loading job'}/> 
+    )
+  } else {
+  const {company, description, title, location, url, created} = jobMatch
 
   const handleSave = event => {
     event.preventDefault()
-    updateSaved(matchId)
+    updateProperty(matchId, 'saved')
   }
 
   const handleApplied = event => {
     event.preventDefault()
-    updateApplied()
+    updateProperty(matchId, 'applied')
   }
 
   return (
@@ -22,6 +28,7 @@ export default function JobDetail({matchId, jobs, updateSaved, updateApplied}) {
     <div className='job-card job-detail-card' id={matchId} key={matchId}>
       <h1 className='title'>{title}</h1>
       <p className='company'>{company}</p>
+      <p className="date-posted">Posted: {created}</p>
       <p className="location">{location}</p>
       <a className="full-info-link" href={url}>
         <button>
@@ -37,6 +44,7 @@ export default function JobDetail({matchId, jobs, updateSaved, updateApplied}) {
     }
     </div>
   )
+  }
 }
 
 JobDetail.propTypes = {
