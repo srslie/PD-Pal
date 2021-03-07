@@ -12,13 +12,13 @@ import Saved from '../Saved/Saved';
 import Applied from '../Applied/Applied';
 import NotFound from '../NotFound/NotFound';
 import JobDetail from '../JobDetail/JobDetail';
-
+import Values from '../Values/Values';
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       user: 'Your',
-      values: '',
+      values: 'What are you working for?',
       jobs: [],
       saved: [],
       applied: [],
@@ -38,7 +38,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-      <Header />
+      <Header user={this.state.user} values={this.state.values}/>
       <Switch>
         {this.state.jobs &&
           <>
