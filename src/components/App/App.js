@@ -77,28 +77,28 @@ export default class App extends Component {
               return <Home jobs={this.state.jobs} saved={this.state.saved} applied={this.state.applied} error={this.state.error}/>
               }} 
             />
-            <Route path='/job/:id' render={({match}) => {
+            <Route exact path='/job/:id' render={({match}) => {
               return <JobDetail matchId={match.params.id} jobs={this.state.jobs} updateProperty={this.updateProperty}/>
             }} />
-            <Route path='/about' component={About} />
-            <Route path='/resources' component={Resources} />
-            <Route path='/account' render={() => {
+            <Route exact path='/about' component={About} />
+            <Route exact path='/resources' component={Resources} />
+            <Route exact path='/account' render={() => {
               return <Account user={this.state.user} values={this.state.values} updateText={this.updateText}/>
               }} 
             />
-            <Route path='/saved'  render={() => {
+            <Route exact path='/saved'  render={() => {
               return <Saved jobs={this.state.jobs} saved={this.state.saved} />
               }} 
             />
-            <Route path='/applied' render={() => {
+            <Route exact path='/applied' render={() => {
               return <Applied jobs={this.state.jobs} applied={this.state.applied} />
               }} 
             />
           </>
         }
-        <Route path="/404" component={NotFound} />
-        <Redirect to="/404" />
       </Switch>
+      <Route path="/404" component={NotFound} />
+        <Redirect from='*' to="/404" />
       <Footer />
       </>
     )
