@@ -48,7 +48,17 @@ describe('App', () => {
 
   it('Should have a home display with values and all jobs', () =>{
     cy.get('.home').children('.job-listings').children('.job-card')
-      .get('.job-card:first').should('have.id', '2035955654').children('.job-title', '.company-info', '.date-posted', '.location')
+      .get('.job-card:first').should('have.id', '2035955654').children('.job-title', '.company-info', '.date-posted', '.location', '.details-link')
+      .get('.job-title:first').should('have.text', 'JavaScript UI Developer')
+      .get('.company-info:first').should('have.attr', 'href').should('eq','https://www.adzuna.com/land/ad/2035955654?se=8pTvaQN_6xGyC4uzethhzQ&utm_medium=api&utm_source=a7e24f78&v=C1A3EF48805442E5037CBEC0E4117FFA0DD45192')
+      .get('.company-info:first').children('.company-name')
+      .get('.company-name:first').should('have.text', 'General Dynamics Information Technology')
+      .get('.date-posted:first').should('have.text', 'Posted: 2021-03-06')
+      .get('.location:first').should('have.text', 'Bossier City, Bossier Parish')
+      .get('.details-link:first').children('.details-button')
+      .get('.details-button:first').should('have.text', 'More Details').click()
+      cy.url().should('contain', '/job/2035955654')
+
   })
 
   it('Should let users to see more details on a secific job', () => {})

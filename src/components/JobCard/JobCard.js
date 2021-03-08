@@ -22,10 +22,12 @@ export default function JobCard({jobs, matchId, checkIfMarked}) {
     {jobMatch &&
     <div className={`job-card ${markedCard}`} id={matchId} key={Date.now()}>
       <h2 className='job-title'>{title}</h2>
-      <a className='company-info' href={url}>{company}</a>
+      <a className='company-info' href={url}>
+        <p className='company-name'>{company}</p>
+      </a>
       <p className="date-posted">Posted: {created}</p>
       <p className='location'>{location}</p>
-      <Link to={`/job/${matchId}`} >
+      <Link className="details-link" to={`/job/${matchId}`} >
         <button className='details-button'>
           More Details
         </button>
