@@ -6,6 +6,11 @@ import JobListings from '../JobListings/JobListings';
 import './Home.css';
 
 export default function Home({jobs, saved, applied, error, checkIfMarked}) {
+  if (!jobs) {
+    return (
+      <Error error={'Problem loading job'}/> 
+    )
+  }
   return (
     <div className='home'>
     {error &&
