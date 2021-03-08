@@ -1,0 +1,64 @@
+{
+  "results": [
+      {
+          "salary_is_predicted": "0",
+          "redirect_url": "https://www.adzuna.com/land/ad/2035955654?se=8pTvaQN_6xGyC4uzethhzQ&utm_medium=api&utm_source=a7e24f78&v=C1A3EF48805442E5037CBEC0E4117FFA0DD45192",
+          "company": {
+              "__CLASS__": "Adzuna::API::Response::Company",
+              "display_name": "General Dynamics Information Technology"
+          },
+          "location": {
+              "area": [
+                  "US",
+                  "Louisiana",
+                  "Bossier Parish",
+                  "Bossier City"
+              ],
+              "display_name": "Bossier City, Bossier Parish",
+              "__CLASS__": "Adzuna::API::Response::Location"
+          },
+          "description": "...  of UI development experience. Experience with a modern JS framework and Typescript, as well as CSS for styling the look and feel. Experience with React and/or Angular <strong>JavaScript</strong> tools ...  (preferably React). Preferred Qualifications: Four (4) years of UI development experience Experience with ArcGIS <strong>JavaScript</strong> libraries Experienced in building GUI with SWING and web ...",
+          "latitude": 32.569513,
+          "created": "2021-03-06T14:40:59Z",
+          "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiMjAzNTk1NTY1NCIsInMiOiI4cFR2YVFOXzZ4R3lDNHV6ZXRoaHpRIn0.KflPqiGWYvs8QEIZX4sbvTlZktxLEcdJYRX0rYhgbsg",
+          "__CLASS__": "Adzuna::API::Response::Job",
+          "id": "2035955654",
+          "category": {
+              "tag": "it-jobs",
+              "__CLASS__": "Adzuna::API::Response::Category",
+              "label": "IT Jobs"
+          },
+          "title": "<strong>JavaScript</strong> UI Develoeper",
+          "longitude": -93.694145
+      },
+      {
+          "location": {
+              "__CLASS__": "Adzuna::API::Response::Location",
+              "display_name": "New York, US",
+              "area": [
+                  "US",
+                  "New York"
+              ]
+          },
+          "salary_is_predicted": "0",
+          "company": {
+              "__CLASS__": "Adzuna::API::Response::Company",
+              "display_name": "Ingram Micro SL"
+          },
+          "redirect_url": "https://www.adzuna.com/land/ad/2021738038?se=8pTvaQN_6xGyC4uzethhzQ&utm_medium=api&utm_source=a7e24f78&v=D8AD763F924D7130AABD25E70213C93D64BE0A80",
+          "latitude": 42.522869,
+          "description": "United States | Williamsville, New York Job ID: 34871 Job Description Position at Ingram Micro Why join us? Ingram Micro helps businesses fully realize the promise of technology. TM No other company delivers the full spectrum of global technology and supply chain services to businesses around the world. Ingram Micro’s global infrastructure and deep expertise in technology solutions, supply chain, cloud and mobility enable its business partners to operate efficiently and successfully in the mark…",
+          "created": "2021-02-28T06:15:08Z",
+          "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiOHBUdmFRTl82eEd5QzR1emV0aGh6USIsImkiOiIyMDIxNzM4MDM4In0.g8DVIP4tr4Obt1B5WN23h2Dg2Tae7LBODbhpnvAiKPQ",
+          "__CLASS__": "Adzuna::API::Response::Job",
+          "id": "2021738038",
+          "title": "<strong>JavaScript</strong> Coder",
+          "category": {
+              "label": "IT Jobs",
+              "tag": "it-jobs",
+              "__CLASS__": "Adzuna::API::Response::Category"
+          },
+          "longitude": -75.574677
+      }
+  ]
+}
