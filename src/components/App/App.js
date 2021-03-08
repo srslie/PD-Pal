@@ -43,8 +43,11 @@ export default class App extends Component {
         this.setState({user: storedUser})
       }
     })
-    .then(() => console.log('STATE', this.state))
-    .catch(error => console.log(error))
+    
+    .catch(errorMessage => {
+      console.log('API Error', errorMessage)
+      this.setState({error: errorMessage})
+    })
   }
 
   updateProperty(id, property) {
@@ -95,8 +98,6 @@ export default class App extends Component {
                 checkIfMarked={this.checkIfMarked} /> 
               }} 
             />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/resources' component={Resources} />
             <Route exact path='/account' render={() => {
               return <Account 
                 user={this.state.user} 
@@ -118,11 +119,14 @@ export default class App extends Component {
                 checkIfMarked={this.checkIfMarked}  />
               }} 
             />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/resources' component={Resources} />
           </>
         }
+        <Route component={NotFound} />
       </Switch>
-      <Route path="/404" component={NotFound} />
-        <Redirect from='*' to="/404" />
+      
+        
       <Footer />
       </>
     )
