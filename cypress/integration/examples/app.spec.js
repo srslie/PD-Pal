@@ -172,5 +172,18 @@ describe('Failure', () => {
       .get('.contact-link').should('have.attr', 'href', 'mailto:aliceruppert@gmail.com').children('.contact-button')
         .get('.contact-button').should('have.text', 'Contact for more support!')
   })
+
+  it.only('Should show an error page if fetch fails with a different error', () => {
+    cy.intercept(
+      'GET', 
+      apiUrl,
+      { statusCode: 500}
+    )
+    cy.visit(baseUrl)
+    cy.get('.error').children('.error-text', '.contact-link')
+      .get('.error-text').should('have.text', 'Sorry, error: Internal Server Error. Try reloading!')
+      .get('.contact-link').should('have.attr', 'href', 'mailto:aliceruppert@gmail.com').children('.contact-button')
+        .get('.contact-button').should('have.text', 'Contact for more support!')
+  })
   
 })
