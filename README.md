@@ -1,4 +1,4 @@
-# PDPal: Professional-Development-Pal
+# PD-Pal: Professional-Development-Pal
 
 Turing School of Software and Design emphasizes the professional development of students alongside building up technical skills.
 
