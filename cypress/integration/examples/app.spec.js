@@ -91,9 +91,23 @@ describe('App', () => {
       .get('.values-info').should('have.text', 'What are you working for?')
   })
 
-  it('Should let users update their name and job values in an account page', () => {
+  it.only('Should let users update their name and job values in an account page', () => {
     cy.get('.account-link').click()
       cy.url().should('contain', '/account')
+      cy.get('.account').children('.account-name', '.account-values')
+        .get('.account-name').children('.account-name-title', '.name-input')
+          .get('.account-name-title').should('have.text', 'Your Account')
+          .get('.name-input').type('Alice')
+            .get('.name-button').click()
+              .get('.account-name-title').should('have.text', "Alice's Account")
+                cy.get('.values-title').should('have.text', "Alice's Values:")
+        .get('.account-values').children('.account-values-title', '.account-values-text', '.values-input')
+          .get('.account-values-title').should('have.text', 'Values')
+          .get('.account-values-text').should('have.text', 'What are you working for?')
+          .get('.values-input').type('Food and Stuff')
+            .get('.values-button').click()
+              .get('.account-values-text').should('have.text', "Food and Stuff")
+              cy.get('.values-info').should('have.text', "Food and Stuff")
   })
 
   it('Should have an about page', () =>{
