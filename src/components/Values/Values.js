@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import './Values.css';
 
@@ -7,17 +8,22 @@ export default function Values({user, values}) {
 
   return(
     <div className='values'>
-      <span className='value-text'>
-      <p className='values-title'>{user} Values:</p>
-      <h2 className='values-info'>{values}</h2>
- 
-      <Link to='/account'>
-          <button className='update-values-button'>
-            Update Values
-          </button>
+      <span className='values-text'>
+        <p className='values-title'>{user} Values:</p>
+        <h2 className='values-info'>{values}</h2>
+        {valueCheck && 
+        <Link to='/account'>
+            <button className='update-values-button'>
+              Update Values
+            </button>
         </Link>
-
+      }
       </span>
     </div>
   )
+}
+
+Values.propTypes = {
+  user: PropTypes.string, 
+  values: PropTypes.string,
 }

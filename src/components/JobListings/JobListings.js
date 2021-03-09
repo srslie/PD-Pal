@@ -6,9 +6,12 @@ import './JobListings.css';
 export default function JobListings({jobs, checkIfMarked}) {
   return(
     <div className='job-listings'>
-      {jobs.map(job => <JobCard matchId={job.id} jobs={jobs} checkIfMarked={checkIfMarked} />)}
+      {jobs.map(job => <JobCard matchId={job.id} jobs={jobs} key={job.id} checkIfMarked={checkIfMarked} />)}
     </div>
   )
 }
 
-JobListings.propTypes = {jobs: PropTypes.array}
+JobListings.propTypes = {
+  jobs: PropTypes.array, 
+  checkIfMarked: PropTypes.func
+}

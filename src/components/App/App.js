@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import utility from '../../utility';
 import './App.css';
 import Header from '../Header/Header';
@@ -29,7 +29,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    utility.getData('javascript', '1')
+    utility.getData('javascript', '1', this.setError)
     .then(jobData => {
       this.setState({jobs: jobData})
     })
@@ -43,8 +43,9 @@ export default class App extends Component {
         this.setState({user: storedUser})
       }
     })
-    .then(() => console.log('STATE', this.state))
-    .catch(error => console.log(error))
+    .catch(errorMessage => {
+        this.setState({error: errorMessage})
+    })
   }
 
   updateProperty(id, property) {
@@ -76,53 +77,48 @@ export default class App extends Component {
       <>
       <Header user={this.state.user} values={this.state.values} />
       <Switch>
-        {this.state.jobs &&
-          <>
-            <Route exact path='/' render={() => {
-              return <Home 
-                jobs={this.state.jobs} 
-                saved={this.state.saved} 
-                applied={this.state.applied} 
-                error={this.state.error} 
-                checkIfMarked={this.checkIfMarked} />
-              }} 
-            />
-            <Route exact path='/job/:id' render={({match}) => {
-              return <JobDetail 
-                matchId={match.params.id} 
-                jobs={this.state.jobs} 
-                updateProperty={this.updateProperty} 
-                checkIfMarked={this.checkIfMarked} /> 
-              }} 
-            />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/resources' component={Resources} />
-            <Route exact path='/account' render={() => {
-              return <Account 
-                user={this.state.user} 
-                values={this.state.values} 
-                updateText={this.updateText}/>
-              }} 
-            />
-            <Route exact path='/saved'  render={() => {
-              return <Saved 
-                jobs={this.state.jobs} 
-                saved={this.state.saved}
-                checkIfMarked={this.checkIfMarked}  />
-              }} 
-            />
-            <Route exact path='/applied' render={() => {
-              return <Applied 
-                jobs={this.state.jobs} 
-                applied={this.state.applied}
-                checkIfMarked={this.checkIfMarked}  />
-              }} 
-            />
-          </>
-        }
+          <Route exact path='/' render={() => {
+            return <Home 
+              jobs={this.state.jobs} 
+              saved={this.state.saved} 
+              applied={this.state.applied} 
+              error={this.state.error} 
+              checkIfMarked={this.checkIfMarked} />
+            }} 
+          />
+          <Route exact path='/job/:id' render={({match}) => {
+            return <JobDetail 
+              matchId={match.params.id} 
+              jobs={this.state.jobs} 
+              updateProperty={this.updateProperty} 
+              checkIfMarked={this.checkIfMarked} /> 
+            }} 
+          />
+          <Route exact path='/account' render={() => {
+            return <Account 
+              user={this.state.user} 
+              values={this.state.values} 
+              updateText={this.updateText}/>
+            }} 
+          />
+          <Route exact path='/saved'  render={() => {
+            return <Saved 
+              jobs={this.state.jobs} 
+              saved={this.state.saved}
+              checkIfMarked={this.checkIfMarked}  />
+            }} 
+          />
+          <Route exact path='/applied' render={() => {
+            return <Applied 
+              jobs={this.state.jobs} 
+              applied={this.state.applied}
+              checkIfMarked={this.checkIfMarked}  />
+            }} 
+          />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/resources' component={Resources} />
+        <Route component={NotFound} />
       </Switch>
-      <Route path="/404" component={NotFound} />
-        <Redirect from='*' to="/404" />
       <Footer />
       </>
     )

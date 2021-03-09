@@ -6,7 +6,7 @@ export default function About() {
     <div className="about">
       <h2 className="about-title">About PD-Pal</h2>
       <p className="about-info">
-        This project was coded by <a href="https://github.com/srslie"><button className='alice-link'>Alice Ruppert</button></a> following a <a href="https://turing.io">spec by Turing School Staff</a>. 
+        This project was coded by <a className='alice-link' href="https://github.com/srslie"><button className='alice-button'>Alice Ruppert</button></a> following a <a className='turing-link' href="https://turing.io">spec by Turing School Staff</a>. 
         <br />
         <br />
         This was the final solo project for Mod 3.

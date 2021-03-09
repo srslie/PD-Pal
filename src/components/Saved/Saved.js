@@ -6,7 +6,7 @@ import './Saved.css';
 export default function Saved({jobs, saved, checkIfMarked}) {
   let savedJobs = jobs.filter(job => saved.includes(job.id))
 
-  const storedSavedJobs = JSON.parse(localStorage.getItem('saved'))
+  const storedSavedJobs = JSON.parse(localStorage.getItem('saved')) ?? []
 
   if (saved.length < storedSavedJobs.length) {
     savedJobs = jobs.filter(job => storedSavedJobs.includes(job.id))
@@ -27,5 +27,6 @@ export default function Saved({jobs, saved, checkIfMarked}) {
 
 Saved.propTypes = {
   jobs: PropTypes.array, 
-  saved: PropTypes.array
+  saved: PropTypes.array,
+  checkIfMarked: PropTypes.func
 }
