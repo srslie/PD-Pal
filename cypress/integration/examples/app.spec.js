@@ -51,19 +51,40 @@ describe('App', () => {
       .get('.job-card:first').should('have.id', '2035955654').children('.job-title', '.company-info', '.date-posted', '.location', '.details-link')
       .get('.job-title:first').should('have.text', 'JavaScript UI Developer')
       .get('.company-info:first').should('have.attr', 'href').should('eq','https://www.adzuna.com/land/ad/2035955654?se=8pTvaQN_6xGyC4uzethhzQ&utm_medium=api&utm_source=a7e24f78&v=C1A3EF48805442E5037CBEC0E4117FFA0DD45192')
-      .get('.company-info:first').children('.company-name')
+        .get('.company-info:first').children('.company-name')
       .get('.company-name:first').should('have.text', 'General Dynamics Information Technology')
       .get('.date-posted:first').should('have.text', 'Posted: 2021-03-06')
       .get('.location:first').should('have.text', 'Bossier City, Bossier Parish')
       .get('.details-link:first').children('.details-button')
       .get('.details-button:first').should('have.text', 'More Details').click()
-      cy.url().should('contain', '/job/2035955654')
-
+        cy.url().should('contain', '/job/2035955654')
   })
 
-  it('Should let users to see more details on a secific job', () => {})
+  it('Should let users to see more details on a secific job', () => {
+    cy.get('.details-button:first').click()
+    cy.url().should('contain', '/job/2035955654')
+    cy.get('.job-detail').children('.job-detail-card')
+      .get('.job-detail-card').children('.title', '.company', '.date-posted', '.location', '.full-info-link', '.description', '.user-interations')
+        .get('.title').should('have.text', 'JavaScript UI Developer')
+        .get('.company').should('have.text', 'General Dynamics Information Technology')
+        .get('.date-posted').should('have.text', 'Posted: 2021-03-06')
+        .get('.location').should('have.text', 'Bossier City, Bossier Parish')
+        .get('.full-info-link').should('have.attr', 'href').should('eq', 'https://www.adzuna.com/land/ad/2035955654?se=8pTvaQN_6xGyC4uzethhzQ&utm_medium=api&utm_source=a7e24f78&v=C1A3EF48805442E5037CBEC0E4117FFA0DD45192')
+        .get('.description').should('have.text', '...  of UI development experience. Experience with a modern JS framework and Typescript, as well as CSS for styling the look and feel. Experience with React and/or Angular JavaScript tools ...  (preferably React). Preferred Qualifications: Four (4) years of UI development experience Experience with ArcGIS JavaScript libraries Experienced in building GUI with SWING and web ...' )
+        .get('.user-interactions').children('.save-button', '.applied-button')
+          .get('.save-button').should('have.text', 'Save')
+          .get('.applied-button').should('have.text', 'Mark Applied')
+  })
 
-  it('Should let users save a job or mark a job as applied to', () => {})
+  it('Should let users save a job or mark a job as applied to', () => {
+    cy.get('.details-button:first').click()
+      .get('.save-button').should('have.text', 'Save').click()
+        .get('.save-button').should('have.text', 'Saved!').should('have.class', 'marked').click()
+      .get('.applied-button').should('have.text', 'Mark Applied').click()
+        .get('.applied-button').should('have.text', 'Applied!').should('have.class', 'marked').click()
+  })
+
+
 
   it('Should show users name and values and have button to update on first load', () => {
     cy.get('.values').children('.values-text').children('.values-title', 'values-info')
@@ -86,16 +107,24 @@ describe('App', () => {
     cy.url().should('contain', '/resources')
   })
 
-  it('Should allow users to see saved jobs', () => {
-    cy.get('.saved-link').click()
-    cy.url().should('contain', '/saved')
+  it.only('Should allow users to see saved jobs', () => {
+    cy.get('.details-link:first').click()
+      .get('.user-interactions')
+      .get('.save-button').should('have.text', 'Save').click()
+      .get('.saved-link').click()
+      cy.url().should('contain', '/saved')
+        .get('.job-card').should('have.id', '2035955654')
   })
 
   it('Should allow users to see jobs they applied to', () =>{
-    cy.get('.applied-link').click()
-    cy.url().should('contain', '/applied')
+    cy.get('.details-link:first').click()
+      .get('.user-interactions')
+      .get('.applied-button').should('have.text', 'Mark Applied').click()
+      .get('.applied-link').click()
+      cy.url().should('contain', '/applied')
+        .get('.job-card').should('have.id', '2035955654')
   })
- 
+
   it('Should redirect to a 404 page for unknown urls', () =>{
     cy.visit('http://localhost:3000/sheep')
       cy.url().should('contain', '/404')
