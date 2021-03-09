@@ -6,11 +6,7 @@ import JobListings from '../JobListings/JobListings';
 import './Home.css';
 
 export default function Home({jobs, saved, applied, error, checkIfMarked}) {
-  if (!jobs) {
-    return (
-      <Error error={'Problem loading job'}/> 
-    )
-  }
+
   return (
     <div className='home'>
     {error &&
@@ -19,7 +15,7 @@ export default function Home({jobs, saved, applied, error, checkIfMarked}) {
     {!error && jobs.length < 1 &&
       <Loading />
     }
-    {jobs.length > 1 &&
+    {!error && jobs &&
       <JobListings jobs={jobs} saved={saved} applied={applied} checkIfMarked={checkIfMarked}/>
     }
     </div>

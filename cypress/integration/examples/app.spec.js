@@ -149,7 +149,6 @@ describe('App', () => {
 
   it('Should redirect to a 404 page for unknown urls', () =>{
     cy.visit('http://localhost:3000/sheep')
-      cy.url().should('contain', '/404')
       cy.get('.not-found').children('.not-found-overlay')
         .get('.not-found-overlay').children('.not-found-code', '.not-found-title', '.home-link')
         .get('.not-found-code').should('have.text', '404:')
@@ -158,4 +157,20 @@ describe('App', () => {
         .get('.home-link-button').click()
       cy.url().should('eq', 'http://localhost:3000/')
   })
+})
+
+describe('Failure', () => {
+  it.only('Should show an error page if fetch fails', () => {
+    cy.intercept(
+      'GET', 
+      apiUrl,
+      { statusCode: 400}
+    )
+    cy.visit(baseUrl)
+    cy.get('.error').children('.error-text', '.contact-link')
+      .get('.error-text').should('have.text', 'Sorry, error: Bad Request. Try reloading!')
+      .get('.contact-link').should('have.attr', 'href', 'mailto:aliceruppert@gmail.com').children('.contact-button')
+        .get('.contact-button').should('have.text', 'Contact for more support!')
+  })
+  
 })

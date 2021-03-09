@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 import './Error.css';
 
 export default function Error({error}) {
+
   return(
     <div className="error">
-      <p>Sorry, error: {error}. Try reloading!</p>
-      <a href="mailto:aliceruppert@gmail.com">Contact for more support!</a>
+      <p className='error-text'>Sorry, error: {error}. Try reloading!</p>
+      <a className='contact-link' href="mailto:aliceruppert@gmail.com">
+        <button className='contact-button'>
+          Contact for more support!
+        </button>
+      </a>
     </div>
   )
 }
