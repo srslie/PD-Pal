@@ -37,9 +37,9 @@ export default function JobDetail({matchId, jobs, updateProperty, checkIfMarked}
     <div className={`job-card job-detail-card ${markedCard}`} id={matchId} key={matchId}>
       <h1 className='title'>{title}</h1>
       <p className='company'>{company}</p>
-      <p className="date-posted">Posted: {created}</p>
-      <p className="location">{location}</p>
-      <a className="full-info-link" href={url}>
+      <p className='date-posted'>Posted: {created}</p>
+      <p className='location'>{location}</p>
+      <a className='full-info-link' href={url}>
         <button>
           Full Job Posting
         </button>
