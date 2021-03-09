@@ -28,12 +28,11 @@ describe('App', () => {
     cy.get('.header').children('.header-links')
       .get('.header-links').children('.logo', '.saved-link', '.applied-link', '.account-link')
       .get('.account-link').click()
-      cy.url().should('include', '/account')
-        .get('.applied-link').click()
-        cy.url().should('contain', '/account')
-      cy.url().should('include', '/applied')
-        .get('.saved-link').click()
-        cy.url().should('contain', '/saved-link')
+        cy.url().should('include', '/account')
+      .get('.applied-link').click()
+        cy.url().should('include', '/applied')
+      .get('.saved-link').click()
+        cy.url().should('contain', '/saved')
       cy.url().should('include', '/saved')
         .get('.logo').children('.logo-button')
         .get('.logo-button').click()
@@ -107,7 +106,7 @@ describe('App', () => {
           .get('.turing-link').should('have.attr', 'href', 'https://turing.io' )
   })
 
-  it.only('Should have a page with resources for PD', () =>{
+  it('Should have a page with resources for PD', () =>{
     cy.get('.resources-link').click()
       cy.url().should('contain', '/resources')
       cy.get('.resources').children('.resources-title', '.resources-info', '.pd-link')
