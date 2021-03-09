@@ -1,5 +1,3 @@
-import Error from "./components/Error/Error"
-
 const utility = {
   // getJobs() { //   return Promise.all(this.getData('javascript', '1'), this.getData('react', '1'))
   //   .then(data => console.log('UTILITY', data))
