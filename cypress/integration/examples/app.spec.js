@@ -91,7 +91,7 @@ describe('App', () => {
       .get('.values-info').should('have.text', 'What are you working for?')
   })
 
-  it.only('Should let users update their name and job values in an account page', () => {
+  it('Should let users update their name and job values in an account page', () => {
     cy.get('.account-link').click()
       cy.url().should('contain', '/account')
       cy.get('.account').children('.account-name', '.account-values')
