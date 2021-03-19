@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+- node
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: g7hKO1ovE/LvTw4f3wGjmDtm91Z7+t4ccyISjA3RvPIArEw4ZYGYySlWpfiGjbuG0llic39YKHmYuehxro3boprDdpyw+kL0mh/WqKRB9AcpCEBcGXii6YOHaylxq3sofoPrcLSfBlXQUEKL24Z7l4unz+t19Q5XlUUTVTItaIFcRlr1hpRNvZ7edi4qRMYIxY+9BKvrC3Jx2tVRCSS//sa/eMxCqQrRibbwaLj3RdNKsJM6NivC4xrE/IotLvS/+5aZyV/t+3fVFvcK4moUplr6y6xmXCMRnNhemOU7qoBUuE93+7uXC10z701LirRA93gH4nuOxNHAjLsiAo9B7v33HPJqrByesaolJNTEiERSiZ1XVXGi2Crzg7vuF2sM76ZKIN+ZNou8dsIxk1DVpn8aiMYIp/Qekgb5wnAqjdri9thD9b+NL973bN1spIYD+GrkoLw1DYITfMiu+8OefWz4Tibq4sL8WhwOmf6lyb9Z5sJtpNTw9Zue4KHkmscKO+WCzUNmlMNYjcWu+MyhV8UE/SEdQwI0CBJxR0NwueiQmblWnxX0ZSg1kp3UizKWcpg6ryhgopad1bAjnKVtjPNImM1hBTk8VgWHf2oSCMUQcE9r5LcguOaOjP4eE0VvneBkyd4GTlrC3qaPLZT0lo0p39UQCB0JmuFYs8Bb9xo=
+  app: pd-pal
+  skip_cleanup: true
+  apt:
+    packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+      - libgconf-2-4
+cache:
+  # Caches $HOME/.npm when npm ci is default script command
+  # Caches node_modules in all other cases
+  npm: true
+  directories:
+    # we also need to cache folder with Cypress binary
+    - ~/.cache
+install:
+  - npm ci
+script:
+  - $(npm bin)/cypress run --record

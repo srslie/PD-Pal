@@ -20,9 +20,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "my-server -p 3030",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:3030 cy:run",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^6.6.0"
+    "cypress": "^6.6.0",
+    "start-server-and-test": "^1.12.1"
   }
 }
