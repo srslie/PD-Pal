@@ -22,8 +22,10 @@
   "scripts": {
     "start": "react-scripts start",
     "cy:run": "cypress run",
-    "test": "start-server-and-test start-server https-get://localhost:3000 cy:run",
+    "cy:open": "cypress open",
+    "test": "react-scripts test",
     "build": "react-scripts build",
+    "start-sw": "http=server ./build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
